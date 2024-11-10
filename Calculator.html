@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator by MananGG</title>
+    <link rel="stylesheet" href="Calculator.css">
+</head>
+<body>
+<!-- Defining The Calculator Body and Display Area -->
+    <div class="box">
+        <input type="text" id="display" readonly>
+
+<!-- Adding Working Buttons( Clear, 1, 2 ) -->
+        <div class="b_container">
+            <button class="btn" onclick="current_number = '' 
+            document.querySelector('#display').value=current_number">C</button>
+
+            <button class="btn" onclick="current_number += '1'
+            document.querySelector('#display').value=current_number">1</button>
+
+            <button class="btn" onclick="current_number += '2'
+            document.querySelector('#display').value=current_number">2</button>
+        </div>
+
+<!-- Adding Working Buttons( Addition, 3, 4 ) -->
+        <div class="b_container">
+            <button class="btn" onclick="current_number += '+'
+            document.querySelector('#display').value=current_number">+</button>
+
+            <button class="btn" onclick="current_number += '3'
+            document.querySelector('#display').value=current_number">3</button>
+
+            <button class="btn" onclick="current_number += '4'
+            document.querySelector('#display').value=current_number">4</button>
+        </div>
+
+<!-- Adding Working Buttons( Subtraction, 5, 6 ) -->
+        <div class="b_container">
+            <button class="btn" onclick="current_number += '-'
+            document.querySelector('#display').value=current_number">-</button>
+
+            <button class="btn" onclick="current_number += '5'
+            document.querySelector('#display').value=current_number">5</button>
+
+            <button class="btn" onclick="current_number += '6'
+            document.querySelector('#display').value=current_number">6</button>
+        </div>
+
+<!-- Adding Working Buttons( Multiplication, 7, 8 ) -->
+        <div class="b_container">
+            <button class="btn" onclick="current_number += '*'
+            document.querySelector('#display').value=current_number">*</button>
+
+            <button class="btn" onclick="current_number += '7'
+            document.querySelector('#display').value=current_number">7</button>
+
+            <button class="btn" onclick="current_number += '8'
+            document.querySelector('#display').value=current_number">8</button>
+        </div>
+
+<!-- Adding Working Buttons( Division, Result, 9 ) -->
+        <div class="b_container">
+            <button class="btn" onclick="current_number += '/'
+            document.querySelector('#display').value=current_number">/</button>
+
+            <button class="btn"
+             onclick="current_number = eval(current_number)
+             document.querySelector('#display').value=current_number">=</button>
+
+            <button class="btn" onclick="current_number += '9'
+            document.querySelector('#display').value=current_number">9</button>
+        </div>
+
+<!-- Adding Working Buttons( 0, . , Backspace ) -->
+        <div class="b_container">
+            <button class="btn" onclick="current_number += '0'
+            document.querySelector('#display').value=current_number">0</button>
+
+            <button class="btn" onclick="current_number += '.'
+            document.querySelector('#display').value=current_number">.</button>
+
+            <button class="btn" onclick="current_number = current_number.slice(0, -1); 
+            document.querySelector('#display').value = current_number">←</button>
+
+        </div>
+        
+    </div>
+
+<!-- Initializing Current display with JS -->
+    <script>
+        let current_number=''
+    </script>
+</body>
+</html>
