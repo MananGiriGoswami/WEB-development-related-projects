@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<head>
+    <title>Cricket Game</title>
+    <style>
+         body {
+            text-align: center;
+            background-image: url(Images/WD.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+
+         }
+        .display {
+            width: 35px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bat, Ball & Stump Game</h1>
+
+    <!-- User's Choice Button -->
+    <button onclick="playGame('BAT')">Bat</button>
+    <button onclick="playGame('BALL')">Ball</button>
+    <button onclick="playGame('STUMP')">Stump</button>
+
+    <h2>SCORES</h2>
+
+    <!-- Display scores -->
+    <div>
+        <pre>YOU <input type="text" id="you" class="display" readonly>
+
+BOT <input type="text" id="bot" class="display" readonly>
+
+TIE <input type="text" id="tie" class="display" readonly></pre>
+    </div>
+
+    <!-- Reset Button -->
+    <button onclick="resetScores()">Reset Scores</button>
+
+    <script>
+        // Initialize scores from localStorage or default to 0
+        let playerScore = localStorage.getItem('playerScore') ? parseInt(localStorage.getItem('playerScore')) : 0;
+        let botScore = localStorage.getItem('botScore') ? parseInt(localStorage.getItem('botScore')) : 0;
+        let timesTied = localStorage.getItem('timesTied') ? parseInt(localStorage.getItem('timesTied')) : 0;
+
+        // Function to update the displayed scores
+        function updateScores() {
+            document.getElementById('you').value = playerScore;
+            document.getElementById('bot').value = botScore;
+            document.getElementById('tie').value = timesTied;
+        }
+
+        // Function to play the game
+        function playGame(playerChoice) {
+            let randomNum = Math.random();
+            let computerChoice;
+
+            // Random choice for the computer
+            if (randomNum > 0.6) {
+                computerChoice = 'STUMP';
+            } else if (randomNum < 0.3) {
+                computerChoice = 'BAT';
+            } else {
+                computerChoice = 'BALL';
+            }
+
+            alert('Computer has chosen ' + computerChoice);
+
+            // Determining the winner
+            if (playerChoice === computerChoice) {
+                alert('It\'s a Tie!');
+                timesTied++;
+            } else if (
+                (playerChoice === 'BAT' && computerChoice === 'BALL') ||
+                (playerChoice === 'BALL' && computerChoice === 'STUMP') ||
+                (playerChoice === 'STUMP' && computerChoice === 'BAT')
+            ) {
+                alert('You Won!');
+                playerScore++;
+            } else {
+                alert('You Lost!');
+                botScore++;
+            }
+
+            // Store scores in localStorage
+            localStorage.setItem('playerScore', playerScore);
+            localStorage.setItem('botScore', botScore);
+            localStorage.setItem('timesTied', timesTied);
+
+            // Update the displayed scores
+            updateScores();
+        }
+
+        // Function to reset the scores
+        function resetScores() {
+            localStorage.removeItem('playerScore');
+            localStorage.removeItem('botScore');
+            localStorage.removeItem('timesTied');
+
+            // Reset scores to 0
+            playerScore = 0;
+            botScore = 0;
+            timesTied = 0;
+
+            // Update the displayed scores
+            updateScores();
+        }
+
+        // Update the displayed scores on page load
+        updateScores();
+    </script>
+</body>
+</html>
+
