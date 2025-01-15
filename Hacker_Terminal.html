@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <title>Wrong Website</title>
+    <style>
+        #image {
+            width: 100px;
+            margin-top: 100px;
+            margin-left: 700px;
+            display: none;
+        }
+        body {
+            text-align: center;
+            font-family: monospace;
+            color: #006400; 
+            background-color: white; 
+            padding: 20px;
+        }
+        #head {
+            color: red;
+        }
+        #para {
+            color: gray;
+            display: none;
+        }
+        #console {
+            white-space: pre-wrap;
+            text-align: left;
+            margin-top: 30px;
+            display: none; 
+            color: #006400; 
+        }
+        .blinking-dots {
+            display: inline;
+            animation: blink 1s steps(1, end) infinite;
+        }
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="head">Welcome To This Site</h1>
+
+    <p id="para">You shouldn't have opened this by believing others.</p>
+
+    <img id="image" src="https://ih1.redbubble.net/image.5083549197.5873/st,small,507x507-pad,600x600,f8f8f8.jpg" alt="Hee-Hee Haww">
+
+    <div id="console"></div>
+
+    <script src="Hacker_Terminal.js"></script>
+</body>
+</html>
+
